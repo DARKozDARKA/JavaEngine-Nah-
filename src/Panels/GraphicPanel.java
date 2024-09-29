@@ -8,18 +8,18 @@ import java.awt.*;
 
 public class GraphicPanel extends JPanel {
 
-    private GraphicPass _pass = new GraphicPass();
+    private GraphicPass pass = new GraphicPass();
 
-    public void LoadPass(GraphicPass pass){
+    public void loadPass(GraphicPass pass){
 
-        _pass = pass;
+        this.pass = pass;
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        for (GraphicObject object : _pass.Objects) {
+        for (GraphicObject object : pass.Objects) {
             object.Draw(g);
         }
     }
