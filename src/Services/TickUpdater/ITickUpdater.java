@@ -1,6 +1,6 @@
 package Services.TickUpdater;
 
-import FakeDIContainer.IService;
+import Engine.FakeDIContainer.IService;
 
 public interface ITickUpdater extends IService, Runnable {
      void RegisterTickable(ITickable tickable);

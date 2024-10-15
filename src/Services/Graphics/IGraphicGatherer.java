@@ -1,8 +1,7 @@
 package Services.Graphics;
 
-import FakeDIContainer.IService;
-import Graphics.Elements.GraphicObject;
-import Graphics.Elements.GraphicPass;
+import Engine.FakeDIContainer.IService;
+import Engine.Graphics.Elements.GraphicObject;
 
 import java.util.ArrayList;
 

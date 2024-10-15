@@ -1,6 +1,6 @@
 package Services.Input;
 
-import FakeDIContainer.IService;
+import Engine.FakeDIContainer.IService;
 
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;

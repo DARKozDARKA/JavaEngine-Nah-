@@ -1,6 +1,6 @@
 package Services.Graphics;
 
-import Graphics.Elements.GraphicObject;
+import Engine.Graphics.Elements.GraphicObject;
 
 import java.util.ArrayList;
 
