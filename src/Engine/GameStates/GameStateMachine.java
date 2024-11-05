@@ -3,6 +3,7 @@ package Engine.GameStates;
 import Engine.FakeDIContainer.AllServices;
 import Engine.GameStates.States.BootstrapState;
 import Engine.GameStates.States.GameLoopState;
+import Services.Factories.IActorFactory;
 import Services.Graphics.IGraphicGatherer;
 
 import java.util.Map;
@@ -15,7 +16,7 @@ public class GameStateMachine {
     public void RegisterStates(AllServices allServices) {
         Map<Class<?>, IExitableState> states = new HashMap<>();
         states.put(BootstrapState.class, new BootstrapState(allServices, this));
-        states.put(GameLoopState.class, new GameLoopState(allServices.single(IGraphicGatherer.class)));
+        states.put(GameLoopState.class, new GameLoopState(allServices.single(IGraphicGatherer.class), allServices.single(IActorFactory.class)));
         _states = states;
     }
 

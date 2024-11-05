@@ -7,5 +7,7 @@ import java.util.ArrayList;
 
 public interface IGraphicGatherer extends IService {
     void RegisterGraphicObject(GraphicObject object);
+    void UnregisterGraphicObject(GraphicObject object);
+
     ArrayList<GraphicObject> GetGraphicObjects();
 }

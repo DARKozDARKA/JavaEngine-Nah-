@@ -1,6 +1,8 @@
 package Engine.Mains;
 
 import Engine.FakeDIContainer.AllServices;
+import Services.Factories.ActorFactory;
+import Services.Factories.IActorFactory;
 import Services.Graphics.GraphicGatherer;
 import Services.Graphics.IGraphicGatherer;
 import Services.Input.IInputDetector;
@@ -16,6 +18,16 @@ public class ServiceRegisterer {
     public void RegisterWindowDependentServices(AllServices diContainer, MainWindow gameWindow) {
         RegisterTickUpdater(diContainer, gameWindow);
         RegisterInputDetector(diContainer, gameWindow);
+        RegisterActorFactory(diContainer);
+    }
+
+    private void RegisterGraphicGatherer(AllServices diContainer) {
+        diContainer.registerSingle(IGraphicGatherer.class, new GraphicGatherer());
+    }
+
+    private void RegisterActorFactory(AllServices diContainer) {
+        diContainer.registerSingle(IActorFactory.class,
+                new ActorFactory(diContainer, diContainer.single(ITickUpdater.class)));
     }
 
     private void RegisterTickUpdater(AllServices diContainer, MainWindow window) {
@@ -34,7 +46,5 @@ public class ServiceRegisterer {
         gameWindow.addMouseListener(inputDetector);
     }
 
-    private void RegisterGraphicGatherer(AllServices diContainer) {
-        diContainer.registerSingle(IGraphicGatherer.class, new GraphicGatherer());
-    }
+
 }

@@ -14,6 +14,11 @@ public class GraphicGatherer implements IGraphicGatherer {
     }
 
     @Override
+    public void UnregisterGraphicObject(GraphicObject object) {
+        _objects.remove(object);
+    }
+
+    @Override
     public ArrayList<GraphicObject> GetGraphicObjects() {
         return _objects;
     }
